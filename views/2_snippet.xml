@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Commencez par renommer le snippet en un nom générique. -->
+        <!-- Remplacez le HTML avec un contenu minimal, pour que l'utilisateur sache où insérer son contenu. -->
+        <template id="custom_snippet_2" name="Snippet personnalisé 2">
+            <section class="o_spc-medium custom_snippet_2">
+                <div class="container">
+                    <p class="css_editable_mode_display text-center">
+                        Contenu du snippet 2
+                    </p>
+                </div>
+            </section>
+        </template>
+
+        <!-- Faire correspondre l'ID du snippet avec celui que vous avez défini ci-dessus. -->
+        <!-- N'oubliez pas de modifier le chemin de la vignette pour qu'il corresponde à l'emplacement de votre image. -->
+        <template id="custom_snippet_entry_2" inherit_id="website.snippets" name="Entrée du snippet personnalisé 2">
+            <xpath expr="//div[@id='snippet_structure']/div[@class='o_panel_body']" position="inside">
+            <!-- Chemin vers la miniature du snippet -->
+                <t t-snippet="mon_module.custom_snippet_2"
+                   t-thumbnail="/mon_module/static/img/thumbnail_2.svg"/>
+            </xpath>
+        </template>
+
+        <!-- Cette partie est facultative. Si votre snippet n'a pas besoin d'options spécifiques, vous pouvez supprimer cette section. -->
+        <!-- Si vous voulez la conserver, assurez-vous que les options correspondent à ce que votre snippet peut faire. -->
+        <template id="custom_snippet_options_2" name="Options de mon snippet" inherit_id="website.snippet_options">
+            <xpath expr="." position="inside">
+                <div data-selector=".custom_snippet_2" data-js="custom">
+                    <we-row string="Options">
+                        <we-button data-action="option1" data-no-preview="true">Option 1</we-button>
+                        <we-button data-action="option2" data-no-preview="true">Option 2</we-button>
+                    </we-row>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

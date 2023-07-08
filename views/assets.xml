@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Définition de l'extension des assets du frontend -->
+        <template id="frontend_extension" name="Frontend Extension" inherit_id="website.assets_frontend">
+            <!-- L'expression xpath "." signifie "l'élément courant", c'est-à-dire l'élément website.assets_frontend -->
+            <!-- La position "inside" ajoute le nouveau contenu à l'intérieur de cet élément, en fin de liste -->
+            <xpath expr="." position="inside">
+                <!-- Chargement du CSS dans les assets front-end -->
+                <!-- <link href="/mon_module/static/less/monmodule.css" rel="stylesheet" type="text/css"/> -->
+            </xpath>
+        </template>
+
+        <!-- Définition de l'extension des assets communs -->
+        <template id="common_asset_extension" name="Common Asset Extension" inherit_id="web.assets_common">
+            <!-- L'expression xpath "link[last()]" signifie "le dernier élément link" -->
+            <!-- La position "after" ajoute le nouveau contenu après cet élément -->
+            <xpath expr="link[last()]" position="after">
+                <!-- Chargement des styles et des scripts dans les assets communs -->
+                <link href="/mon_module/static/scss/1_snippet.scss" rel="stylesheet" type="text/scss"/>
+                <link href="/mon_module/static/scss/2_snippet.scss" rel="stylesheet" type="text/scss"/>
+                <!-- <script href="/mon_module/static/js/snippet_script.js" type="text/javascript"/> -->
+            </xpath>
+        </template>
+
+        <!-- Définition de l'extension des assets de l'éditeur -->
+        <template id="editor_asset_extension" name="Editor Asset Extension" inherit_id="website.assets_editor">
+            <!-- L'expression xpath "link[last()]" signifie "le dernier élément link" -->
+            <!-- La position "after" ajoute le nouveau contenu après cet élément -->
+            <xpath expr="link[last()]" position="after">
+                <script src="/mon_module/static/js/snippet_script.js" type="text/javascript"/>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
